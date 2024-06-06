@@ -1,0 +1,34 @@
+#PROGRAMMING A GUESSING GAME
+
+In this chapter we will introduce some concepts such as "let", "match", methods, associated functions, external crates, and few more.
+
+What is a guessing game?, this is how it works: the program will generate a random integer between 1 and 100. It will then prompt the player to enter a guess. After a guess is entered, the program will indicate whether the guess is too low or too high. if the guess is correct, the game will print a congratulatory message and exit.
+
+##Setting Up a New Project
+
+$ cargo new [project_name]	#this command create a new project directory using cargo
+$ cargo new creates a Cargo.toml file containing the package and dependencies that will be needed for the project, it also create a main.rs containing "hello, world!" program.
+$ cargo run compiles the program quickly and produce the output.this is the best to execute the program and test it iteratively during conception.
+
+##Processing a Guess
+
+##Generating a Secret Number
+Rust does not yet include random number functionality in its standard library.
+However, the Rust team does provide a rand Crate.
+
+##Using a Crate to Get More Functionality
+A crate is a collection of Rust source code files. The rand crate is a library, which contains code that is intended to be used in other programs and cn't be executed on its own.
+Cargo coordinates external crates. Before using the rand crate we must modify the dependencies file "Cargo.toml" and include in it the rand crate.
+
+##Ensuring Reproduction Builds with the Cargo.lock File
+"Cargo.lock" is created when we first use "cargo build" command on our project, and this file contains all the version of dependencies that fit the criteria of our project. so that even if updated of the dependencies that we use are downloaded but they break our code, "Cargo" will find in the "Cargo.lock" when we build in the future, isntead of figuring it out again.
+
+##Updating a Crate to Get a New Version
+
+The command "cargo update" will ignore the Cargo.lock file and figure out all the latest versions that fit your specifications in Cargo.toml. Cargo will then write those versions to the Cargo.lock file.
+
+##Generating a Random Number
+
+Note: Rust has a strong static type system.But also it has type inference.
+The secret_number in our code range between 1 to 100, and Rust has few types that fall under this range of numbers. such as: i32(32-bit number), u32(unsigned 32-bit number), i64 (a 64-bit number) and more...
+Unless specified, the default integer type used by Rust is i32. In the error we have seen, the reason is that Rust cannot compare a string guess and a number type secret_number. Therefore the solution is to convert the String the program reads as input into a real number type to allow comparison.

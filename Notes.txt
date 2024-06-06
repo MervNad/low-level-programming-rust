@@ -1,0 +1,61 @@
+**1. INTRODUCTION**
+
+Rust gives the option to control low-level details(such as memory usage) without all the hassle traditionally associated with such control (like in C and C++).
+
+**2.1 INSTALLING RUST**
+
+On Linux and MacOs:
+$ curl --proto '=https' --tlsv1.2 https://sh.rustup.rs -sSf | sh
+this command downloads as script and starts installation of **rustup** tool.
+
+$ xcode-select --install
+a linker is needed, a linker is used to join the compiled output into one file. the command above is used to install a C compiler on macOs.
+
+**2.2 TROUBLESHOOTING**
+$ rustc --version
+this command checks the rust version
+$ rustup update
+this command update rustup in case there are new releases.
+$rustup doc is the command to read the rust documentation online if you have already installed rust.
+
+**2.3 HELLO WORLD**
+
+Anatomy of a rust program
+
+fn main(){
+
+}
+definition of a funtion named main. the main function is a special function.it is always the first code that runs in every executable Rust programs. this specific main function returns nothing and has no parameters. The function body is wrapped in {}.
+~rustfmt~ is the automatic formatter tool for formatting rust sorce codes.
+
+println!("hello, world!");
+this line prints the text to the screen.
+Important Notes:
+rust style is to indent with 4 spaces, not a tab.
+println! calls a rust macro (there is a difference between function call println and macro calling println!)
+the string "hello, world!" is passed as an argument to println!.
+we end the line with a semicolon(;), this indicates that this expression is over and the next one is ready to begin.
+
+#Compiling and Running Are Separated Steps
+
+$rustc main.rs this line compiles the rust program using the rust compiler passing the rust source file as parameter. This is similar to C and C++ using gcc or clang.
+
+**2.4 HELLO CARGO**
+Cargo is the rust build system and packaging manager. this is used when the program has become big, this tool is used to handle a lot of tasks for the programmer. such as buidling code, downloading dependencies (which are libraries that the code needs and depends on).
+
+#Creating a Project with cargo
+$ cargo new hello_cargo This line creates a new directory and project called hello_cargo. inside the hello_cargo we find two files and one directory.Cargo.toml and src with a main.rsc inside the src directory.Cargo also initilized a new Git repository with a .gitignores file.
+
+the file Cargo.toml (TOML means Tom's Obvious, Minimal Language)
+$ cd hello_cargo
+
+**Building ad Running a Cargo Project**
+$ cargo build #this line build a project using cargo
+$ cargo new #this line create a project using cargo
+$ cargo run #this line build and run a project in one step using cargo
+$ cargo check #this line build a project without producing a binary to check for errors using cargo.
+
+cargo stores the result of the build in target/debug directory rather than in the same directory as our code.
+The cargo commands are the same for every OS.
+
+$ cargo build --release #when the project is ready for release, use this line to compile with optimizations. this command will create an executable in target/release instaed of target/debug
